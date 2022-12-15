@@ -52,7 +52,7 @@ const Header = ({ authenticated, open, onOpen }: IHeader) => {
     <StyledHeader>
       <StyledLink to={PageUrls.HOMEPAGE}>
         <StyledLogo>
-          <StyledImage alt='logo' src='/public/logo.svg' />
+          <StyledImage alt='logo' src='/public/static/logo.svg' />
           <StyledTitle variant='h3'>Game Store</StyledTitle>
         </StyledLogo>
       </StyledLink>
