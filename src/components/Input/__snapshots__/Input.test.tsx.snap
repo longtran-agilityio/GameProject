@@ -12,9 +12,9 @@ exports[`Input should matches snapshot 1`] = `
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
         id=":r0:"
-        placeholder="Tonya Deckow"
+        placeholder="Ed Gutkowski"
         type="email"
-        value="Gloves"
+        value="Bike"
       />
       <fieldset
         aria-hidden="true"
