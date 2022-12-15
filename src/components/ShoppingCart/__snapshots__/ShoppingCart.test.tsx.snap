@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shopping Cart should matches snapshot 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-y4ovhc"
+  >
+    <div
+      class="MuiBox-root css-1omog99"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-18j92sb-MuiTypography-root"
+      >
+        1
+         games
+      </h2>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-17rxn03-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        Clear
+      </button>
+    </div>
+    <div
+      class="MuiBox-root css-j2ham7"
+    >
+      <div
+        class="MuiBox-root css-bdgjhp"
+      >
+        <a
+          class="css-1hbj5v0"
+          href="/game-detail/3498"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1mf8eqe-MuiTypography-root"
+          >
+            Grand Theft Auto V
+          </p>
+        </a>
+        <div
+          class="MuiBox-root css-gvoll6"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-14f1ohf-MuiTypography-root"
+          >
+            $ 
+            50.12
+          </p>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1j30yif-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeSmall css-155nyw6-MuiButton-endIcon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CancelIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-1omog99"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-wfopbl-MuiTypography-root"
+      >
+        Total: $
+        50.12
+      </p>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge css-1cjliby-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        Checkout
+        <span
+          class="MuiButton-endIcon MuiButton-iconSizeLarge css-z4rqyd-MuiButton-endIcon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="ArrowRightAltIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

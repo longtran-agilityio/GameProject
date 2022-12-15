@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should matches snapshot 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-w0eck8"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-ytizn3-MuiTypography-root"
+    >
+      Pattie
+    </p>
+    <div
+      class="MuiBox-root css-mrlnu"
+    >
+      <a
+        class="css-17al1o8"
+        href="/proc"
+      >
+        Nienow
+      </a>
+    </div>
+  </div>
+</div>
+`;
