@@ -8,7 +8,6 @@ const fetchingData = async <T>(
     method,
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Methods': 'PUT, POST, GET, OPTIONS',
     },
     body: JSON.stringify(data),
   })
