@@ -28,7 +28,7 @@ import { IGetUser } from '@webapp/interfaces/user'
 import { Link } from 'react-router-dom'
 import { PageUrls } from '@webapp/constants/pageUrl'
 import { useCart } from '@webapp/contexts/games/cartProvider'
-
+import logo from '../../../public/logo.svg'
 interface IHeader {
   authenticated: boolean
   open: boolean
@@ -52,7 +52,7 @@ const Header = ({ authenticated, open, onOpen }: IHeader) => {
     <StyledHeader>
       <StyledLink to={PageUrls.HOMEPAGE}>
         <StyledLogo>
-          <StyledImage alt='logo' src='/public/static/logo.svg' />
+          <StyledImage alt='logo' src={logo} />
           <StyledTitle variant='h3'>Game Store</StyledTitle>
         </StyledLogo>
       </StyledLink>
