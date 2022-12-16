@@ -20,7 +20,7 @@ const App = () => {
     <Suspense
       fallback={
         <StyledScroll>
-          <LinearProgress sx={{ width: '1000px' }} color='secondary' />
+          <LinearProgress sx={{ width: '1000px' }} color='secondary' role='progressbar' />
         </StyledScroll>
       }
     >

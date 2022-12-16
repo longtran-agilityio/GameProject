@@ -52,7 +52,7 @@ const DetailPage = () => {
   if (!data)
     return (
       <StyledScroll>
-        <LinearProgress sx={{ width: '1000px' }} color='secondary' />
+        <LinearProgress sx={{ width: '1000px' }} color='secondary' role='progressbar' />
       </StyledScroll>
     )
   const game = { ...data, prices: 50.11 }
