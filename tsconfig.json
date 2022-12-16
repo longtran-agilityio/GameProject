@@ -29,7 +29,7 @@
       "@webapp/services/*": ["src/services/*"],
       "@webapp/contexts/*": ["src/contexts/*"],
       "@webapp/fetcher/*": ["src/fetcher/*"],
-      "@webapp/types/*": ["src/types/*"]
+      "@webapp/types/*": ["src/types/*"],
     }
   },
   "include": ["src"],

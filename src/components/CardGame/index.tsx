@@ -57,7 +57,7 @@ const CardGame = ({ game, addGame }: ICardGame) => {
   return (
     <StyledCardGame>
       <Link to={generatePath(PageUrls.GAME_DETAIL, { id: game.id.toString() })}>
-        <StyledImage src={game.background_image} />
+        <StyledImage src={game.background_image} alt={game.name} />
       </Link>
 
       <StyledInfoCard>
