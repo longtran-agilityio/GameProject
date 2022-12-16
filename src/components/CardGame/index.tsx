@@ -58,12 +58,8 @@ const CardGame = ({ game, addGame }: ICardGame) => {
   return (
     <StyledCardGame>
       <Link to={generatePath(PageUrls.GAME_DETAIL, { id: game.id.toString() })}>
-        <Box sx={{ width: '300px', height: '200px' }}>
-          <StyledImage
-            sizes='(max-width: 300px) 220px'
-            src={game.background_image}
-            alt={game.name}
-          />
+        <Box sx={{ width: '100%', height: '200px' }}>
+          <StyledImage loading='lazy' src={game.background_image} alt={game.name} />
         </Box>
       </Link>
 
