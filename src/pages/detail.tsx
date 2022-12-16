@@ -47,9 +47,7 @@ const DetailPage = () => {
   const { id } = useParams()
   const userAuthentication = useAuth()
   const { cartsList, addGame } = useCart()
-  const pathDetailGame = `${import.meta.env.VITE_API_GAME_URL}/${GameEndpoint.GAMES}/${id}?key=${
-    import.meta.env.VITE_API_KEY
-  }`
+  const pathDetailGame = `${process.env.VITE_API_GAME_URL}/${GameEndpoint.GAMES}/${id}?key=${process.env.VITE_API_KEY}`
   const { data } = useSWR<IGame>(`${pathDetailGame}`)
   if (!data)
     return (

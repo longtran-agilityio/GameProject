@@ -1,1 +1,1 @@
-export const baseUrl = import.meta.env.VITE_API_JSON_SERVER_URL
+export const baseUrl = process.env.VITE_API_JSON_SERVER_URL
