@@ -17,8 +17,8 @@ export const StyledInfoCard = styled(Box)(({ theme }) => ({
 }))
 
 export const StyledImage = styled('img')(({ theme }) => ({
-  width: theme.spacing(30),
-  height: theme.spacing(20),
+  width: '100%',
+  height: '100%',
 }))
 
 export const StyledBox = styled(Box)(({ theme }) => ({
@@ -29,6 +29,7 @@ export const StyledBox = styled(Box)(({ theme }) => ({
 export const StyledTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
   fontWeight: 900,
+  fontSize: theme.spacing(1.8),
 }))
 
 export const StyledReleased = styled(Typography)(({ theme }) => ({

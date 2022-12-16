@@ -20,6 +20,7 @@ import { PageUrls } from '@webapp/constants/pageUrl'
 import { IGame, IAddGame } from '@webapp/interfaces/game'
 import { useCart } from '@webapp/contexts/games/cartProvider'
 import { useAuth } from '@webapp/contexts/useAuth'
+import { Box } from '@mui/material'
 
 interface ICardGame {
   game: IGame
@@ -57,7 +58,13 @@ const CardGame = ({ game, addGame }: ICardGame) => {
   return (
     <StyledCardGame>
       <Link to={generatePath(PageUrls.GAME_DETAIL, { id: game.id.toString() })}>
-        <StyledImage src={game.background_image} alt={game.name} />
+        <Box sx={{ width: '300px', height: '200px' }}>
+          <StyledImage
+            sizes='(max-width: 300px) 220px'
+            src={game.background_image}
+            alt={game.name}
+          />
+        </Box>
       </Link>
 
       <StyledInfoCard>
@@ -72,7 +79,7 @@ const CardGame = ({ game, addGame }: ICardGame) => {
           <StyledPrice variant='body1'>${game.prices}</StyledPrice>
         </StyledBox>
         <Link to={generatePath(PageUrls.GAME_DETAIL, { id: game.id.toString() })}>
-          <StyledTitle variant='h6'>{game.name}</StyledTitle>
+          <StyledTitle>{game.name}</StyledTitle>
         </Link>
         <StyledReleased>Released: {game.released}</StyledReleased>
         <StyledGenres>Genres: {[game.genres.map(({ name }) => name)].join(',')}</StyledGenres>

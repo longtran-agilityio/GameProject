@@ -36,7 +36,10 @@ export const StyledProductCart = styled(Box)(({ theme }) => ({
   display: 'flex',
 }))
 
-export const StyledImage = styled('img')({})
+export const StyledImage = styled('img')(({ theme }) => ({
+  width: theme.spacing(2),
+  height: theme.spacing(2),
+}))
 
 export const StyledProductAmount = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.text.secondary,
