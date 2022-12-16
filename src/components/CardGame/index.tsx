@@ -1,6 +1,7 @@
 import AddIcon from '@mui/icons-material/Add'
 import DoneIcon from '@mui/icons-material/Done'
 import { Link, generatePath } from 'react-router-dom'
+import Skeleton from 'react-loading-skeleton'
 // component
 import { StyledButton } from '@webapp/components/Button/Button.module'
 
@@ -21,6 +22,7 @@ import { IGame, IAddGame } from '@webapp/interfaces/game'
 import { useCart } from '@webapp/contexts/games/cartProvider'
 import { useAuth } from '@webapp/contexts/useAuth'
 import { Box } from '@mui/material'
+import { Suspense } from 'react'
 
 interface ICardGame {
   game: IGame
@@ -61,9 +63,21 @@ const CardGame = ({ game, addGame }: ICardGame) => {
         to={generatePath(PageUrls.GAME_DETAIL, { id: game.id.toString() })}
         aria-label={game.name}
       >
-        <Box sx={{ height: '200px' }}>
-          {/* <StyledImage src={game.background_image} alt={game.name} /> */}
-        </Box>
+        <Suspense fallback={<Skeleton count={3} />}>
+          <Box sx={{ height: '200px' }}>
+            <picture>
+              <source srcSet={game.background_image} media='min-width: 300px' />
+              <source srcSet={game.background_image} media='min-width: 400px' />
+
+              <StyledImage
+                srcSet={`${game.background_image} 2x`}
+                sizes='(max-width: 300px) 300px, (max-width: 300'
+                src={game.background_image}
+                alt={game.name}
+              />
+            </picture>
+          </Box>
+        </Suspense>
       </Link>
 
       <StyledInfoCard>

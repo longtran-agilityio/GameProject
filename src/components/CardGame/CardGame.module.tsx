@@ -19,7 +19,6 @@ export const StyledInfoCard = styled(Box)(({ theme }) => ({
 export const StyledImage = styled('img')(({ theme }) => ({
   width: '100%',
   height: '100%',
-  aspectRatio: 1 / 1,
 }))
 
 export const StyledBox = styled(Box)(({ theme }) => ({
