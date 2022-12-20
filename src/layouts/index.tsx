@@ -6,6 +6,7 @@ import ShoppingCart from '@webapp/components/ShoppingCart'
 import { useCart } from '@webapp/contexts/games/cartProvider'
 import { useState } from 'react'
 import { IGame } from '@webapp/interfaces/game'
+import { Box } from '@mui/material'
 
 const MainLayout = () => {
   const { cartsList, removeGame, removeAllGame } = useCart()

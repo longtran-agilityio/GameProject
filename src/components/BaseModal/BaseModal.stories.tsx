@@ -1,5 +1,5 @@
 // lib
-import { ThemeProvider } from '@mui/material'
+import { Box, ThemeProvider } from '@mui/material'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 // component
@@ -20,5 +20,5 @@ const Template: ComponentStory<typeof BaseModal> = (args) => (
 export const BaseModalComponent = Template.bind({})
 BaseModalComponent.args = {
   isOpen: true,
-  children: <>This is a modal</>,
+  children: <Box>This is a modal</Box>,
 }

@@ -3,10 +3,6 @@ import { theme } from '@webapp/themes/index'
 import { Link } from 'react-router-dom'
 
 export const StyledHeader = styled('header')(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
   position: 'fixed',
   top: 0,
   left: 0,
@@ -15,15 +11,27 @@ export const StyledHeader = styled('header')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
   padding: theme.spacing(2, 5),
   boxSizing: 'border-box',
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+}))
+
+export const StyledBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: theme.spacing(256),
 }))
 
 export const StyledLink = styled(Link)({
-  width: '15%',
+  width: '25%',
+  textDecoration: 'none',
 })
 
 export const StyledLogo = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100%',
+  alignItems: 'center',
 }))
 
 export const StyledTitle = styled(Typography)(({ theme }) => ({
@@ -40,17 +48,20 @@ export const StyledImage = styled('img')(({ theme }) => ({
   width: theme.spacing(2),
   height: theme.spacing(2),
 }))
-
 export const StyledProductAmount = styled(Typography)(({ theme }) => ({
   backgroundColor: theme.palette.text.secondary,
-  padding: theme.spacing(0.2, 0.8),
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: theme.spacing(3),
+  height: theme.spacing(3),
   borderRadius: '50%',
   color: theme.palette.background.default,
   marginLeft: theme.spacing(1),
 }))
 
 export const StyledSearch = styled(Box)(({ theme }) => ({
-  width: '40%',
+  width: '30%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -71,7 +82,7 @@ export const StyledLogin = {
 export const StyledLogout = {
   backgroundColor: theme.palette.text.primary,
   color: theme.palette.background.default,
-  padding: theme.spacing(0.2),
+  padding: theme.spacing(0.2, 2),
 }
 
 export const StyledUserName = styled(Typography)(({ theme }) => ({
@@ -83,8 +94,9 @@ export const StyledUserName = styled(Typography)(({ theme }) => ({
 
 export const StyledUserCart = styled(Box)(({ theme }) => ({
   display: 'flex',
-  width: '15%',
-  justifyContent: 'space-between',
+  width: '25%',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
 }))
 
 export const StyledSearchIcon = {

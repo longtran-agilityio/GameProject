@@ -6,7 +6,7 @@
 
 ## FLOW APP
 
-![Flow App Practice](./src/assets/App/GameStoreDiagram.png)
+![Flow App Practice](./src/assets/App/chartApp.png)
 
 ## REQUIREMENT
 

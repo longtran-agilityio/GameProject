@@ -26,8 +26,8 @@ export const StyledBodyBox = styled(Box)({
 export const StyledImage = styled('img')(({ theme }) => ({
   width: '75%',
   height: '100%',
-  minHeight: theme.spacing(100),
-  maxHeight: theme.spacing(100),
+  minHeight: theme.spacing(60),
+  maxHeight: theme.spacing(80),
   borderRadius: theme.spacing(2),
 }))
 

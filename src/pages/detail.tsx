@@ -8,7 +8,6 @@ import LinearProgress from '@mui/material/LinearProgress'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import useSWR from 'swr'
-import { useEffect, useState } from 'react'
 
 // component
 import { StyledButton } from '@webapp/components/Button/Button.module'
@@ -49,15 +48,11 @@ const DetailPage = () => {
   const userAuthentication = useAuth()
   const { cartsList, addGame } = useCart()
   const pathDetailGame = `${process.env.VITE_API_GAME_URL}/${GameEndpoint.GAMES}/${id}?key=${process.env.VITE_API_KEY}`
-  const [mounted, setMounted] = useState(false)
-  const { data } = useSWR<IGame>(mounted ? `${pathDetailGame}` : null)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const { data } = useSWR<IGame>(`${pathDetailGame}`)
   if (!data)
     return (
       <StyledScroll>
-        <LinearProgress sx={{ width: '1000px' }} color='secondary' role='progressbar' />
+        <LinearProgress sx={{ width: '1000px' }} color='secondary' />
       </StyledScroll>
     )
   const game = { ...data, prices: 50.11 }

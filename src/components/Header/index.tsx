@@ -21,6 +21,7 @@ import {
   StyledLogout,
   StyledSearchIcon,
   StyledLink,
+  StyledBox,
 } from './Header.module'
 import { Typography } from '@mui/material'
 import { useUserActions, useAuth } from '@webapp/contexts/useAuth'
@@ -28,7 +29,6 @@ import { IGetUser } from '@webapp/interfaces/user'
 import { Link } from 'react-router-dom'
 import { PageUrls } from '@webapp/constants/pageUrl'
 import { useCart } from '@webapp/contexts/games/cartProvider'
-import logo from '../../../public/logo.svg'
 interface IHeader {
   authenticated: boolean
   open: boolean
@@ -50,55 +50,57 @@ const Header = ({ authenticated, open, onOpen }: IHeader) => {
   }
   return (
     <StyledHeader>
-      <StyledLink to={PageUrls.HOMEPAGE}>
-        <StyledLogo>
-          <StyledImage alt='logo' src={logo} />
-          <StyledTitle variant='h3'>Game Store</StyledTitle>
-        </StyledLogo>
-      </StyledLink>
+      <StyledBox>
+        <StyledLink to={PageUrls.HOMEPAGE}>
+          <StyledLogo>
+            <StyledImage alt='logo' src='/logo.svg' />
+            <StyledTitle variant='h3'>Game Store</StyledTitle>
+          </StyledLogo>
+        </StyledLink>
 
-      <StyledSearch>
-        <StyledInputBase placeholder='Search game' type='search' />
-        <SearchSharpIcon sx={StyledSearchIcon} />
-      </StyledSearch>
+        <StyledSearch>
+          <StyledInputBase placeholder='Search game' type='search' />
+          <SearchSharpIcon sx={StyledSearchIcon} />
+        </StyledSearch>
 
-      <StyledUserCart>
-        {authenticated && (
-          <StyledProductCart>
-            <StyledButton
-              onClick={handleOpen}
-              size='large'
-              startIcon={<LocalMallOutlinedIcon />}
-              disableRipple
-            >
-              Cart
-            </StyledButton>
-            <StyledProductAmount>{cartsList?.length}</StyledProductAmount>
-          </StyledProductCart>
-        )}
-
-        <StyledUser>
-          <AccountCircleSharpIcon />
-          {authenticated ? (
-            <>
-              <StyledUserName>{userName}</StyledUserName>
-              <StyledButton onClick={handleLogout} variant='contained' sx={StyledLogout}>
-                Logout
+        <StyledUserCart>
+          {authenticated && (
+            <StyledProductCart>
+              <StyledButton
+                onClick={handleOpen}
+                size='large'
+                startIcon={<LocalMallOutlinedIcon />}
+                disableRipple
+              >
+                Cart
               </StyledButton>
-            </>
-          ) : (
-            <>
-              <Link to={PageUrls.LOGIN}>
-                <StyledButton sx={StyledLogin}>LogIn</StyledButton>
-              </Link>
-              <Typography>|</Typography>
-              <Link to={PageUrls.REGISTER}>
-                <StyledButton sx={StyledLogin}>Register</StyledButton>
-              </Link>
-            </>
+              <StyledProductAmount>{cartsList?.length}</StyledProductAmount>
+            </StyledProductCart>
           )}
-        </StyledUser>
-      </StyledUserCart>
+
+          <StyledUser>
+            <AccountCircleSharpIcon />
+            {authenticated ? (
+              <>
+                <StyledUserName>{userName}</StyledUserName>
+                <StyledButton onClick={handleLogout} variant='contained' sx={StyledLogout}>
+                  Logout
+                </StyledButton>
+              </>
+            ) : (
+              <>
+                <Link to={PageUrls.LOGIN} style={{ textDecoration: 'none' }}>
+                  <StyledButton sx={StyledLogin}>LogIn</StyledButton>
+                </Link>
+                <Typography>|</Typography>
+                <Link to={PageUrls.REGISTER} style={{ textDecoration: 'none' }}>
+                  <StyledButton sx={StyledLogin}>Register</StyledButton>
+                </Link>
+              </>
+            )}
+          </StyledUser>
+        </StyledUserCart>
+      </StyledBox>
     </StyledHeader>
   )
 }

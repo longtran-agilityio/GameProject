@@ -9,6 +9,7 @@ import LinearProgress from '@mui/material/LinearProgress'
 import { StyledScroll } from '@webapp/pages/StyledPage/homePage'
 import { UserProvider } from '@webapp/contexts/useAuth'
 import { CartProvider } from '@webapp/contexts/games/cartProvider'
+import ErrorBoundary from '@webapp/components/ErrorBoundary'
 // lazy load page
 const LoginPage = lazy(() => import('@webapp/pages/login'))
 const RegisterPage = lazy(() => import('@webapp/pages/register'))
@@ -20,7 +21,7 @@ const App = () => {
     <Suspense
       fallback={
         <StyledScroll>
-          <LinearProgress sx={{ width: '1000px' }} color='secondary' role='progressbar' />
+          <LinearProgress sx={{ width: '1000px' }} color='secondary' />
         </StyledScroll>
       }
     >
@@ -31,18 +32,20 @@ const App = () => {
       >
         <UserProvider>
           <CartProvider>
-            <Box sx={{ width: '100%', margin: '0 auto' }}>
-              <Routes>
-                <Route path={PageUrls.HOMEPAGE} element={<MainLayout />}>
-                  <Route index element={<HomePage />}></Route>
-                  <Route path={PageUrls.GAME_DETAIL} element={<DetailPage />}></Route>
-                  <Route path={PageUrls.HOMEPAGE} element={<HomePage />}></Route>
+            <ErrorBoundary>
+              <Box sx={{ width: '100%', margin: '0 auto' }}>
+                <Routes>
+                  <Route path={PageUrls.HOMEPAGE} element={<MainLayout />}>
+                    <Route index element={<HomePage />}></Route>
+                    <Route path={PageUrls.GAME_DETAIL} element={<DetailPage />}></Route>
+                    <Route path={PageUrls.HOMEPAGE} element={<HomePage />}></Route>
 
-                  <Route path={PageUrls.LOGIN} element={<LoginPage />}></Route>
-                  <Route path={PageUrls.REGISTER} element={<RegisterPage />}></Route>
-                </Route>
-              </Routes>
-            </Box>
+                    <Route path={PageUrls.LOGIN} element={<LoginPage />}></Route>
+                    <Route path={PageUrls.REGISTER} element={<RegisterPage />}></Route>
+                  </Route>
+                </Routes>
+              </Box>
+            </ErrorBoundary>
           </CartProvider>
         </UserProvider>
       </SWRConfig>

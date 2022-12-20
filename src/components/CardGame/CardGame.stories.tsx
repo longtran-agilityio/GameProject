@@ -1,6 +1,7 @@
 // libs
 import { ThemeProvider } from '@mui/material'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 // component
 import CardGame from '.'
@@ -14,9 +15,11 @@ export default {
 } as ComponentMeta<typeof CardGame>
 
 const Template: ComponentStory<typeof CardGame> = (args) => (
-  <ThemeProvider theme={theme}>
-    <CardGame {...args} />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CardGame {...args} />
+    </ThemeProvider>
+  </BrowserRouter>
 )
 
 export const CardGameComponent = Template.bind({})
