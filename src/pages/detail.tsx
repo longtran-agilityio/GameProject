@@ -32,7 +32,6 @@ import {
   StyledPricesBox,
   StyledPrice,
 } from '@webapp/pages/StyledPage/detailPage'
-import { StyledScroll } from '@webapp/pages/StyledPage/homePage'
 
 import { PageUrls } from '@webapp/constants/pageUrl'
 
@@ -41,27 +40,35 @@ import { IGame } from '@webapp/interfaces/game'
 
 // contexts
 import { useCart } from '@webapp/contexts/games/cartProvider'
-import { useAuth } from '@webapp/contexts/useAuth'
+import { useAuth, useUserCart } from '@webapp/contexts/useAuth'
 
 const DetailPage = () => {
   const { id } = useParams()
   const userAuthentication = useAuth()
+  const idCart = useUserCart()
   const { cartsList, addGame } = useCart()
   const pathDetailGame = `${process.env.VITE_API_GAME_URL}/${GameEndpoint.GAMES}/${id}?key=${process.env.VITE_API_KEY}`
   const { data } = useSWR<IGame>(`${pathDetailGame}`)
   if (!data)
     return (
-      <StyledScroll>
-        <LinearProgress sx={{ width: '1000px' }} color='secondary' />
-      </StyledScroll>
+      <LinearProgress
+        sx={{
+          position: 'relative',
+          width: '700px',
+          top: '300px',
+          margin: '0 auto',
+        }}
+        color='secondary'
+      />
     )
+
   const game = { ...data, prices: 50.11 }
   const platforms = game?.platforms?.map((item) => item.platform.name).join(', ')
   const genres = game?.genres?.map(({ name }) => name).join(', ')
   const developers = game?.developers?.map(({ name }) => name).join(', ')
   const publishers = game?.publishers?.map(({ name }) => name).join(', ')
   const handleAddGame = () => {
-    addGame(userAuthentication?.user.id as number, [...cartsList, game])
+    addGame(idCart?.id as number, [...cartsList, game])
   }
 
   const addGameBtnAuthentication = userAuthentication ? (

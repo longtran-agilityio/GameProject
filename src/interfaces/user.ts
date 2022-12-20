@@ -1,3 +1,4 @@
+import { IGame } from '@webapp/interfaces/game'
 export interface IUserLogin {
   email: string
   password: string
@@ -26,4 +27,10 @@ export interface IUserAuthenticated extends IUserRegister {
 export interface IGetUser {
   accessToken: string
   user: IUserAuthenticated
+}
+
+export interface IUserCart {
+  id: number
+  cartGames: IGame[]
+  userId: number
 }
