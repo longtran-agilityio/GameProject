@@ -20,10 +20,10 @@ import {
   StyledGameItem,
 } from '@webapp/pages/StyledPage/homePage'
 import { useCart } from '@webapp/contexts/games/cartProvider'
-import { useUserCart } from '@webapp/contexts/useAuth'
+import { useAuth } from '@webapp/contexts/useAuth'
 const HomePage = () => {
   const { cartsList, addGame } = useCart()
-  const idCart = useUserCart()
+  const authenticated = useAuth()
   const { data, error, size, setSize } = useSWRInfinite((index) => `${pathGame}&page=${index + 1}`)
 
   const newData = data?.map((game) =>
@@ -47,7 +47,7 @@ const HomePage = () => {
   }
 
   const handleAddGame = (game: IGame) => {
-    addGame(idCart?.id as number, [...cartsList, game])
+    addGame(authenticated?.user.id as number, [...cartsList, game])
   }
 
   return (

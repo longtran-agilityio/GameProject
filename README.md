@@ -67,6 +67,9 @@
 - Estimate time: Nov 15, 2022 to Nov 29, 2022
   - Working days: 1 day to make a document, 10 days to code.
 
+- Actually: Nov 15, 2022 to Dec 19,2022 
+  - Working day: 20 days
+
 ## GETTING STARTED
 
 All commands are run from the root folder, from a terminal:

@@ -28,9 +28,3 @@ export interface IGetUser {
   accessToken: string
   user: IUserAuthenticated
 }
-
-export interface IUserCart {
-  id: number
-  cartGames: IGame[]
-  userId: number
-}

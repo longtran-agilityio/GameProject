@@ -40,12 +40,11 @@ import { IGame } from '@webapp/interfaces/game'
 
 // contexts
 import { useCart } from '@webapp/contexts/games/cartProvider'
-import { useAuth, useUserCart } from '@webapp/contexts/useAuth'
+import { useAuth } from '@webapp/contexts/useAuth'
 
 const DetailPage = () => {
   const { id } = useParams()
   const userAuthentication = useAuth()
-  const idCart = useUserCart()
   const { cartsList, addGame } = useCart()
   const pathDetailGame = `${process.env.VITE_API_GAME_URL}/${GameEndpoint.GAMES}/${id}?key=${process.env.VITE_API_KEY}`
   const { data } = useSWR<IGame>(`${pathDetailGame}`)
@@ -68,7 +67,7 @@ const DetailPage = () => {
   const developers = game?.developers?.map(({ name }) => name).join(', ')
   const publishers = game?.publishers?.map(({ name }) => name).join(', ')
   const handleAddGame = () => {
-    addGame(idCart?.id as number, [...cartsList, game])
+    addGame(userAuthentication?.user.id as number, [...cartsList, game])
   }
 
   const addGameBtnAuthentication = userAuthentication ? (

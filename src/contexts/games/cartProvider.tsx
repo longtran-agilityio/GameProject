@@ -3,7 +3,7 @@ import { IGame } from '@webapp/interfaces/game'
 import { ICartGame } from '@webapp/interfaces/game'
 import { pathCarts } from '@webapp/constants/path'
 import { cartsEndPoint } from '@webapp/constants/endpoint'
-import { useUserCart } from '@webapp/contexts/useAuth'
+import { useAuth } from '@webapp/contexts/useAuth'
 import useSWR from 'swr'
 import { putData } from '@webapp/services/fetchApi'
 
@@ -17,10 +17,10 @@ const CartContext = createContext<ICartContext>({} as ICartContext)
 const useCart = () => useContext(CartContext)
 
 const CartProvider = ({ children }: { children: ReactNode }) => {
-  const idCart = useUserCart()
+  const userAuthenticated = useAuth()
 
   const { data, mutate } = useSWR<ICartGame>(
-    idCart ? `${pathCarts}/${cartsEndPoint(idCart.id)}` : null,
+    userAuthenticated ? `${pathCarts}/${cartsEndPoint(userAuthenticated.user.id)}` : null,
   )
 
   const addGame = useCallback(
