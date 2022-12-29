@@ -1,4 +1,4 @@
-import GTWalsheim from '@webapp/assets/gtwalsheimProRegular/gtwalsheimProRegular.ttf'
+import GTWalsheim from '@webapp/assets/fonts/gtwalsheimProRegular/gtwalsheimProRegular.ttf'
 export default {
   caption: {
     fontSize: 58,
