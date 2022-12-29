@@ -6,10 +6,10 @@ import { faker } from '@faker-js/faker'
 import LoginForm from './index'
 
 // interface
-import { IUserLogin } from '@webapp/interfaces/user'
+import { ILoginInput } from '@webapp/interfaces/user'
 
 const handleUserLogin = () => {
-  const loginRequest: IUserLogin = {
+  const loginRequest: ILoginInput = {
     email: faker.internet.email(),
     password: faker.internet.password(),
   }

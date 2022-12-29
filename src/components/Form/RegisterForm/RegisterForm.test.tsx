@@ -4,11 +4,10 @@ import { faker } from '@faker-js/faker'
 // component
 import RegisterForm from '.'
 
-import { IUserRegister } from '@webapp/interfaces/user'
+import { IRegisterInput } from '@webapp/interfaces/user'
 
 const handleUserRegister = () => {
-  const registerRequest: IUserRegister = {
-    id: faker.datatype.number(),
+  const registerRequest: IRegisterInput = {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     email: faker.internet.email(),

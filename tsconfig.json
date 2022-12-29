@@ -20,7 +20,7 @@
       "@webapp/components/*": ["src/components/*"],
       "@webapp/constants/*": ["src/constants/*"],
       "@webapp/themes/*": ["src/themes/*"],
-      "@webapp/fonts/*": ["src/fonts/*"],
+      "@webapp/assets/*": ["src/assets/*"],
       "@webapp/utils/*": ["src/utils/*"],
       "@webapp/mocks/*": ["src/mocks/*"],
       "@webapp/interfaces/*": ["src/interfaces/*"],
