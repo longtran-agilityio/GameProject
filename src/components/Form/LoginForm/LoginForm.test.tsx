@@ -16,9 +16,7 @@ const handleUserLogin = () => {
   return loginRequest
 }
 const error = faker.datatype.string()
-const LoginFormComponent = () => {
-  return render(<LoginForm handleLogin={handleUserLogin} error={error} />)
-}
+const LoginFormComponent = () => render(<LoginForm handleLogin={handleUserLogin} error={error} />)
 
 describe('LoginForm', () => {
   test('should matches snapshot', () => {

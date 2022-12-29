@@ -1,4 +1,0 @@
-# start of file
-user-agent: *
-disallow: /downloads/
-sitemap: https://game-project-liart.vercel.app/

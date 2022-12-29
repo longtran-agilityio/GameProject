@@ -7,9 +7,7 @@ import CardGame from '.'
 import { game } from '@webapp/mocks/mockGamesStore'
 
 const onClick = jest.fn()
-const CardGameComponent = () => {
-  return render(<CardGame game={game[0]} addGame={onClick} />)
-}
+const CardGameComponent = () => render(<CardGame game={game[0]} addGame={onClick} />)
 
 describe('CardGame', () => {
   test('should matches snapshot', () => {

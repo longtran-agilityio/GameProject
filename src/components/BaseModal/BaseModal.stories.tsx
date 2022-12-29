@@ -4,6 +4,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 // component
 import BaseModal from '@webapp/components/BaseModal'
+
+// themes
 import { theme } from '@webapp/themes/index'
 
 export default {

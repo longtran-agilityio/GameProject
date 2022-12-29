@@ -5,9 +5,7 @@ import { render, screen } from '@webapp/utils/testUtils'
 import Header from '.'
 
 const onClick = jest.fn()
-const HeaderComponent = () => {
-  return render(<Header authenticated={true} open={false} onOpen={onClick} />)
-}
+const HeaderComponent = () => render(<Header authenticated={true} onOpen={onClick} />)
 
 describe('Header', () => {
   test('should matches snapshot', () => {

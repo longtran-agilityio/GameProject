@@ -1,7 +1,9 @@
+// lib
 import { render } from '@webapp/utils/testUtils'
 import { Box } from '@mui/material'
 import { faker } from '@faker-js/faker'
 
+// component
 import BaseModal from '@webapp/components/BaseModal'
 
 const onClose = jest.fn()
@@ -11,9 +13,7 @@ const BaseModalProps = {
   onClose: onClose,
   children: <Box>{name}</Box>,
 }
-const BaseModalComponent = () => {
-  return render(<BaseModal {...BaseModalProps} />)
-}
+const BaseModalComponent = () => render(<BaseModal {...BaseModalProps} />)
 
 describe('Base Modal', () => {
   test('should matches snapshot', () => {

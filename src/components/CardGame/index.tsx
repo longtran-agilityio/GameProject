@@ -1,6 +1,9 @@
+// lib
 import AddIcon from '@mui/icons-material/Add'
 import DoneIcon from '@mui/icons-material/Done'
 import { Link, generatePath } from 'react-router-dom'
+import { Box } from '@mui/material'
+
 // component
 import { StyledButton } from '@webapp/components/Button/Button.module'
 
@@ -16,21 +19,24 @@ import {
   StyledInfoCard,
 } from './CardGame.module'
 
+// constants
 import { PageUrls } from '@webapp/constants/pageUrl'
-import { IGame, IAddGame } from '@webapp/interfaces/game'
+
+// interface
+import { IGame } from '@webapp/interfaces/game'
+
+// context
 import { useCart } from '@webapp/contexts/games/cartProvider'
 import { useAuth } from '@webapp/contexts/useAuth'
-import { Box } from '@mui/material'
 
 interface ICardGame {
   game: IGame
-  addGame: ({ id, cardGame }: IAddGame) => void
+  addGame: (game: IGame) => void
 }
 const CardGame = ({ game, addGame }: ICardGame) => {
   const { cartsList } = useCart()
-  const handleAddToCart = () => {
-    addGame({ id: game.id, cardGame: game })
-  }
+  const handleAddToCart = () => addGame(game)
+
   const userAuthentication = useAuth()
 
   const addGameBtnAuthentication = userAuthentication ? (

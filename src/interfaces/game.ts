@@ -26,12 +26,8 @@ export interface IGame {
   }[]
 }
 
-export interface IAddGame {
-  id: number
-  cardGame: IGame
-}
-
 export interface ICartGame {
   userId: number
   cartGames: IGame[]
+  id: number
 }

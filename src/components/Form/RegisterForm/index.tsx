@@ -13,17 +13,15 @@ import {
 } from '@webapp/components/Form/LoginForm/LoginForm.module'
 
 // interface
-import { IRegisterForm, IUserRegister } from '@webapp/interfaces/user'
+import { IRegisterForm, IRegisterInput } from '@webapp/interfaces/user'
 
 // validation
-import { EmailRequired, PasswordRequired, FieldEmpty } from '@webapp/helpers/validationForm'
+import { EmailValidation, PasswordValidation, FieldEmpty } from '@webapp/utils/validationForm'
 
 const RegisterForm = ({ handleRegister, error }: IRegisterForm) => {
-  const { control, handleSubmit } = useForm<IUserRegister>({ mode: 'onBlur' })
+  const { control, handleSubmit } = useForm<IRegisterInput>({ mode: 'onBlur' })
 
-  const useRegister = (data: IUserRegister) => {
-    handleRegister(data)
-  }
+  const useRegister = (data: IRegisterInput) => handleRegister(data)
 
   return (
     <StyledForm onSubmit={handleSubmit(useRegister)}>
@@ -67,7 +65,7 @@ const RegisterForm = ({ handleRegister, error }: IRegisterForm) => {
             {...field}
           />
         )}
-        rules={EmailRequired}
+        rules={EmailValidation}
         control={control}
         name='email'
       />
@@ -82,7 +80,7 @@ const RegisterForm = ({ handleRegister, error }: IRegisterForm) => {
             {...field}
           />
         )}
-        rules={PasswordRequired}
+        rules={PasswordValidation}
         control={control}
         name='password'
       ></Controller>

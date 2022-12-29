@@ -3,6 +3,7 @@ import { Typography } from '@mui/material'
 import CancelIcon from '@mui/icons-material/Cancel'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 import { generatePath } from 'react-router-dom'
+
 // styles
 import {
   StyledBox,
@@ -23,20 +24,16 @@ import { IGame } from '@webapp/interfaces/game'
 
 interface IShoppingCart {
   games: IGame[]
-  onDelete: (game: IGame) => void
-  open: boolean
-  onOpen: (close: boolean) => void
+  onDelete: (id: number) => void
+  onOpen: () => void
   onDeleteAll: () => void
 }
-const ShoppingCart = ({ games, onDelete, onDeleteAll, open, onOpen }: IShoppingCart) => {
+const ShoppingCart = ({ games, onDelete, onDeleteAll, onOpen }: IShoppingCart) => {
   const total = games.reduce((result, item) => result + item.prices, 0)
 
-  const handleOpen = () => {
-    onOpen(!open)
-  }
-  const handleDeleteAllGame = () => {
-    onDeleteAll()
-  }
+  const handleOpen = () => onOpen()
+
+  const handleDeleteAllGame = () => onDeleteAll()
 
   return (
     <StyledBox>
@@ -59,6 +56,7 @@ const ShoppingCart = ({ games, onDelete, onDeleteAll, open, onOpen }: IShoppingC
             <StyledLink
               to={generatePath(PageUrls.GAME_DETAIL, { id: item.id.toString() })}
               onClick={handleOpen}
+              style={{ textDecoration: 'none' }}
             >
               <StyledName>{item.name}</StyledName>
             </StyledLink>
@@ -68,7 +66,7 @@ const ShoppingCart = ({ games, onDelete, onDeleteAll, open, onOpen }: IShoppingC
                 size='small'
                 endIcon={<CancelIcon />}
                 disableRipple
-                onClick={() => onDelete(item)}
+                onClick={() => onDelete(item.id)}
               />
             </StyledProductItemPrice>
           </StyledProductItem>

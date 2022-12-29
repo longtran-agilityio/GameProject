@@ -1,5 +1,7 @@
 // Libraries
 import { Component, ReactNode } from 'react'
+import { Box, Typography } from '@mui/material'
+import { StyledButton } from '@webapp/components/Button/Button.module'
 
 type ErrorBoundaryState = {
   hasError: boolean
@@ -30,15 +32,15 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h2>An error has been occurred!! </h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
+        <Box>
+          <Typography>An error has been occurred!! </Typography>
+          <Box style={{ whiteSpace: 'pre-wrap' }}>
             {this.state.error && this.state.error.toString()}
-          </details>
-          <button type='button' onClick={() => this.setState({ hasError: false })}>
+          </Box>
+          <StyledButton type='button' onClick={() => this.setState({ hasError: false })}>
             Try again?
-          </button>
-        </div>
+          </StyledButton>
+        </Box>
       )
     }
 

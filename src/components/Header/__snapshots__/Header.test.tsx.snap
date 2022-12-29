@@ -3,133 +3,137 @@
 exports[`Header should matches snapshot 1`] = `
 <div>
   <header
-    class="css-fzw3rl"
+    class="css-ygfu3e"
   >
-    <a
-      class="css-w56oqh"
-      href="/"
-    >
-      <div
-        class="MuiBox-root css-i9jc9h"
-      >
-        <img
-          alt="logo"
-          class="css-0"
-          src="/public/logo.svg"
-        />
-        <h3
-          class="MuiTypography-root MuiTypography-h3 css-feyb9i-MuiTypography-root"
-        >
-          Game Store
-        </h3>
-      </div>
-    </a>
     <div
-      class="MuiBox-root css-1ebph80"
+      class="MuiBox-root css-1uynjez"
     >
-      <div
-        class="MuiFormControl-root MuiTextField-root css-fvh51n-MuiFormControl-root-MuiTextField-root"
+      <a
+        class="css-1tkmtez"
+        href="/"
       >
         <div
-          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1tpp6ry-MuiInputBase-root-MuiOutlinedInput-root"
+          class="MuiBox-root css-jjqsud"
         >
-          <input
-            aria-invalid="false"
-            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch css-1g24dm6-MuiInputBase-input-MuiOutlinedInput-input"
-            id=":r0:"
-            placeholder="Search game"
-            type="search"
-            value=""
+          <img
+            alt="logo"
+            class="css-1t9pz9x"
+            src="/logo.svg"
           />
-          <fieldset
-            aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          <h3
+            class="MuiTypography-root MuiTypography-h3 css-feyb9i-MuiTypography-root"
           >
-            <legend
-              class="css-ihdtdm"
-            >
-              <span
-                class="notranslate"
-              >
-                ​
-              </span>
-            </legend>
-          </fieldset>
+            Game Store
+          </h3>
         </div>
-      </div>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lgrzs7-MuiSvgIcon-root"
-        data-testid="SearchSharpIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-        />
-      </svg>
-    </div>
-    <div
-      class="MuiBox-root css-nzf12r"
-    >
+      </a>
       <div
-        class="MuiBox-root css-gvoll6"
+        class="MuiBox-root css-110k7ip"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge css-1cjliby-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
+        <div
+          class="MuiFormControl-root MuiTextField-root css-fvh51n-MuiFormControl-root-MuiTextField-root"
         >
-          <span
-            class="MuiButton-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1tpp6ry-MuiInputBase-root-MuiOutlinedInput-root"
           >
-            <svg
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch css-1g24dm6-MuiInputBase-input-MuiOutlinedInput-input"
+              id=":r0:"
+              placeholder="Search game"
+              type="search"
+              value=""
+            />
+            <fieldset
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="LocalMallOutlinedIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
             >
-              <path
-                d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"
-              />
-            </svg>
-          </span>
-          Cart
-        </button>
-        <p
-          class="MuiTypography-root MuiTypography-body1 css-17f52fs-MuiTypography-root"
-        />
-      </div>
-      <div
-        class="MuiBox-root css-1n1dh3w"
-      >
+              <legend
+                class="css-ihdtdm"
+              >
+                <span
+                  class="notranslate"
+                >
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-          data-testid="AccountCircleSharpIcon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1lgrzs7-MuiSvgIcon-root"
+          data-testid="SearchSharpIcon"
           focusable="false"
           viewBox="0 0 24 24"
         >
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
           />
         </svg>
-        <p
-          class="MuiTypography-root MuiTypography-body1 css-18zlmzq-MuiTypography-root"
+      </div>
+      <div
+        class="MuiBox-root css-zbi640"
+      >
+        <div
+          class="MuiBox-root css-gvoll6"
         >
-          undefined undefined
-        </p>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-54gl33-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          Logout
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge css-1cjliby-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="LocalMallOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"
+                />
+              </svg>
+            </span>
+            Cart
+          </button>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-j1jdbm-MuiTypography-root"
           />
-        </button>
+        </div>
+        <div
+          class="MuiBox-root css-1n1dh3w"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="AccountCircleSharpIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"
+            />
+          </svg>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-18zlmzq-MuiTypography-root"
+          >
+            undefined undefined
+          </p>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ri8tu4-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            Logout
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </header>

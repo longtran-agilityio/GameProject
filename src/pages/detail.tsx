@@ -62,13 +62,12 @@ const DetailPage = () => {
     )
 
   const game = { ...data, prices: 50.11 }
-  const platforms = game?.platforms?.map((item) => item.platform.name).join(', ')
-  const genres = game?.genres?.map(({ name }) => name).join(', ')
-  const developers = game?.developers?.map(({ name }) => name).join(', ')
-  const publishers = game?.publishers?.map(({ name }) => name).join(', ')
-  const handleAddGame = () => {
-    addGame(userAuthentication?.user.id as number, [...cartsList, game])
-  }
+  const platforms = game.platforms.map((item) => item.platform.name).join(', ')
+  const genres = game.genres.map(({ name }) => name).join(', ')
+  const developers = game.developers.map(({ name }) => name).join(', ')
+  const publishers = game.publishers.map(({ name }) => name).join(', ')
+
+  const handleAddGame = () => addGame(game)
 
   const addGameBtnAuthentication = userAuthentication ? (
     <StyledButton
@@ -100,7 +99,7 @@ const DetailPage = () => {
         }}
       >
         <StyledHeadingBox>
-          <Link to='/'>
+          <Link to='/' style={{ textDecoration: 'none' }}>
             <StyledButton
               startIcon={<ArrowBackIcon />}
               disableRipple
@@ -114,22 +113,20 @@ const DetailPage = () => {
               Store
             </StyledButton>
           </Link>
-          <StyledTitle variant='caption'>{game?.name}</StyledTitle>
+          <StyledTitle variant='caption'>{game.name}</StyledTitle>
         </StyledHeadingBox>
         <StyledBodyBox>
-          <StyledImage src={game?.background_image} alt='' />
+          <StyledImage src={game.background_image} alt='' />
           <StyledDescriptionBox>
             <Box>
               <StyledInfoBox>
                 <StyledInfoTitle variant='h4'>About</StyledInfoTitle>
-                <StyledInfoDesc>{game?.description_raw}</StyledInfoDesc>
+                <StyledInfoDesc>{game.description_raw}</StyledInfoDesc>
               </StyledInfoBox>
               <Box>
                 <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon sx={{ color: theme.palette.text.primary }} />}
-                    aria-controls='panel1a-content'
-                    id='panel1a-header'
                   >
                     <Typography sx={{ color: theme.palette.text.secondary }}>
                       More information
@@ -137,8 +134,8 @@ const DetailPage = () => {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Box sx={{ color: theme.palette.text.secondary, paddingBottom: '40px' }}>
-                      <Typography>{game?.name}</Typography>
-                      <Typography>Released: {game?.released}</Typography>
+                      <Typography>{game.name}</Typography>
+                      <Typography>Released: {game.released}</Typography>
                       <Typography>
                         Platforms:
                         {platforms}
@@ -152,7 +149,7 @@ const DetailPage = () => {
               </Box>
             </Box>
             <StyledPricesBox>
-              <StyledPrice>$ {game?.prices}</StyledPrice>
+              <StyledPrice>$ {game.prices}</StyledPrice>
               {cartsList.find((item) => item.id === game.id) ? (
                 <StyledButton size='medium' endIcon={<DoneIcon />} disabled disableRipple>
                   Added

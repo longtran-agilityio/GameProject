@@ -1,4 +1,4 @@
-export const EmailRequired = {
+export const EmailValidation = {
   required: 'Email is required',
   pattern: {
     value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
@@ -6,7 +6,7 @@ export const EmailRequired = {
   },
 }
 
-export const PasswordRequired = {
+export const PasswordValidation = {
   required: 'Password is required',
   minLength: { value: 8, message: 'min length is 8' },
 }

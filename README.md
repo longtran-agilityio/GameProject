@@ -1,12 +1,12 @@
-# react-training
+# GAME PROJECT
 
 ## OVERVIEW
 
-- This document describes in detail the time, workload, and technical stacks used in the exercise. This method creates a Web App that sells video games with the goals that I can apply my advanced knowledge of React.
+- This project creates a Web Application that sells video games. It details the time, workload, and engineering stacks used in the exercise with the goal that I can apply my advanced React knowledge
 
 ## FLOW APP
 
-![Flow App Practice](./src/assets/App/chartApp.png)
+![Flow App Practice](./src/assets/App/GameStoreDiagram.png)
 
 ## REQUIREMENT
 
@@ -64,11 +64,9 @@
 
 ## TIMELINE
 
-- Estimate time: Nov 15, 2022 to Nov 29, 2022
+- Original Estimate: Nov 15, 2022 to Nov 29, 2022
   - Working days: 1 day to make a document, 10 days to code.
-
-- Actually: Nov 15, 2022 to Dec 19,2022 
-  - Working day: 20 days
+- Actually Estimate: TBD - Update later when the practice finishes.
 
 ## GETTING STARTED
 
@@ -76,7 +74,7 @@ All commands are run from the root folder, from a terminal:
 
 | Command                                                                                  | Action                        |
 | :--------------------------------------------------------------------------------------- | :---------------------------- |
-| `$ git clone -b feat/practice3 git@gitlab.asoft-python.com:long.tran/react-training.git` | Clone Repository              |
+| `$ git clone -b <branch_name> git@gitlab.asoft-python.com:long.tran/react-training.git` | Clone Repository              |
 | `$ cd react-training/Practice3/GAME-PROJECT/`                                            | Redirect to folder            |
 | `$ npm i pnpm`                                                                           | Install packages pnpm         |
 | `$ pnpm install`                                                                         | Install packages dependencies |

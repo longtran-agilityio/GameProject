@@ -7,17 +7,8 @@ import ShoppingCart from '.'
 import { game } from '@webapp/mocks/mockGamesStore'
 
 const onClick = jest.fn()
-const ShoppingCartComponent = () => {
-  return render(
-    <ShoppingCart
-      onDelete={onClick}
-      games={game}
-      open={false}
-      onOpen={onClick}
-      onDeleteAll={onClick}
-    />,
-  )
-}
+const ShoppingCartComponent = () =>
+  render(<ShoppingCart onDelete={onClick} games={game} onOpen={onClick} onDeleteAll={onClick} />)
 
 describe('Shopping Cart', () => {
   test('should matches snapshot', () => {

@@ -1,14 +1,19 @@
 // lib
 import LinearProgress from '@mui/material/LinearProgress'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import useSWRInfinite from 'swr/infinite'
 
 // components
 import CardGame from '@webapp/components/CardGame'
 import { IGame } from '@webapp/interfaces/game'
 
+// hooks
+import { useGamesFetcher } from '@webapp/hooks/useGamesFetcher'
+
 // constants
 import { pathGame } from '@webapp/constants/path'
+
+// context
+import { useCart } from '@webapp/contexts/games/cartProvider'
 
 // styled
 import {
@@ -19,36 +24,12 @@ import {
   StyledScroll,
   StyledGameItem,
 } from '@webapp/pages/StyledPage/homePage'
-import { useCart } from '@webapp/contexts/games/cartProvider'
-import { useAuth } from '@webapp/contexts/useAuth'
+
 const HomePage = () => {
-  const { cartsList, addGame } = useCart()
-  const authenticated = useAuth()
-  const { data, error, size, setSize } = useSWRInfinite((index) => `${pathGame}&page=${index + 1}`)
+  const { issues, isLoadingMore, isReachingEnd, handleLoadingMore } = useGamesFetcher(pathGame)
+  const { addGame } = useCart()
 
-  const newData = data?.map((game) =>
-    game.results.map((item: IGame) => {
-      return {
-        ...item,
-        prices: 50.11,
-      }
-    }),
-  )
-  const issues = newData ? (newData.flat() as IGame[]) : []
-  const isLoadingInitialData = !newData && !error
-  const isLoadingMore =
-    isLoadingInitialData || (size > 0 && newData && typeof newData[size - 1] === 'undefined')
-  const isEmpty = newData?.[0]?.length === 0
-  const isReachingEnd = isEmpty || (newData && newData[newData.length - 1]?.length < 20)
-
-  // loading more
-  const handleLoadingMore = () => {
-    setSize(size + 1)
-  }
-
-  const handleAddGame = (game: IGame) => {
-    addGame(authenticated?.user.id as number, [...cartsList, game])
-  }
+  const handleAddGame = (game: IGame) => addGame(game)
 
   return (
     <StyledBox>

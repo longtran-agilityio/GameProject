@@ -44,9 +44,9 @@ export const StyledProductItem = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(1.5),
 }))
 
-export const StyledProductItemPrice = styled(Box)(({ theme }) => ({
+export const StyledProductItemPrice = styled(Box)({
   display: 'flex',
-}))
+})
 
 export const StyledPrice = styled(Typography)(({ theme }) => ({
   fontWeight: 600,

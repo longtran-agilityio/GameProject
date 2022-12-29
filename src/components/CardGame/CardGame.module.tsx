@@ -1,3 +1,4 @@
+// lib
 import { styled, Box, Typography } from '@mui/material'
 
 export const StyledCardGame = styled(Box)(({ theme }) => ({
@@ -16,15 +17,15 @@ export const StyledInfoCard = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }))
 
-export const StyledImage = styled('img')(({ theme }) => ({
+export const StyledImage = styled('img')({
   width: '100%',
   height: '100%',
-}))
+})
 
-export const StyledBox = styled(Box)(({ theme }) => ({
+export const StyledBox = styled(Box)({
   display: 'flex',
   justifyContent: 'space-between',
-}))
+})
 
 export const StyledTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,

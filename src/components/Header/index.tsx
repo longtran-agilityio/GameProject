@@ -2,9 +2,13 @@
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined'
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+import { Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
+
 // components
 import { StyledButton } from '@webapp/components/Button/Button.module'
 import { StyledInputBase } from '@webapp/components/Input/Input.module'
+
 // styles
 import {
   StyledHeader,
@@ -23,31 +27,31 @@ import {
   StyledLink,
   StyledBox,
 } from './Header.module'
-import { Typography } from '@mui/material'
-import { useUserActions, useAuth } from '@webapp/contexts/useAuth'
-import { IGetUser } from '@webapp/interfaces/user'
-import { Link } from 'react-router-dom'
-import { PageUrls } from '@webapp/constants/pageUrl'
+
+// context
+import { useAuthState, useAuth } from '@webapp/contexts/useAuth'
 import { useCart } from '@webapp/contexts/games/cartProvider'
+
+// interface
+import { IAuthResponse } from '@webapp/interfaces/user'
+
+// constants
+import { PageUrls } from '@webapp/constants/pageUrl'
+
 interface IHeader {
   authenticated: boolean
-  open: boolean
-  onOpen: (open: boolean) => void
+  onOpen: () => void
 }
 
-const Header = ({ authenticated, open, onOpen }: IHeader) => {
+const Header = ({ authenticated, onOpen }: IHeader) => {
   const { cartsList } = useCart()
-  const { logout } = useUserActions()
-  const { user } = (useAuth() as IGetUser) || {}
-  const userName = `${user?.firstName} ${user?.lastName}`
-  const handleLogout = () => {
-    localStorage.clear()
-    logout()
-  }
+  const { logout } = useAuthState()
+  const { user } = (useAuth() as IAuthResponse) || {}
 
-  const handleOpen = () => {
-    onOpen(!open)
-  }
+  const userName = `${user?.firstName} ${user?.lastName}`
+  const handleLogout = () => logout()
+  const handleOpen = () => onOpen()
+
   return (
     <StyledHeader>
       <StyledBox>

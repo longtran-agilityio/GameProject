@@ -1,4 +1,4 @@
-export const enum PageUrls {
+export enum PageUrls {
   LOGIN = '/login',
   REGISTER = '/register',
   HOMEPAGE = '/',

@@ -1,6 +1,9 @@
+// lib
 import { Box, Typography, styled } from '@mui/material'
-import { theme } from '@webapp/themes/index'
 import { Link } from 'react-router-dom'
+
+// theme
+import { theme } from '@webapp/themes/index'
 
 export const StyledHeader = styled('header')(({ theme }) => ({
   position: 'fixed',
@@ -28,11 +31,11 @@ export const StyledLink = styled(Link)({
   textDecoration: 'none',
 })
 
-export const StyledLogo = styled(Box)(({ theme }) => ({
+export const StyledLogo = styled(Box)({
   display: 'flex',
   width: '100%',
   alignItems: 'center',
-}))
+})
 
 export const StyledTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
@@ -40,9 +43,9 @@ export const StyledTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 600,
 }))
 
-export const StyledProductCart = styled(Box)(({ theme }) => ({
+export const StyledProductCart = styled(Box)({
   display: 'flex',
-}))
+})
 
 export const StyledImage = styled('img')(({ theme }) => ({
   width: theme.spacing(2),
@@ -60,12 +63,12 @@ export const StyledProductAmount = styled(Typography)(({ theme }) => ({
   marginLeft: theme.spacing(1),
 }))
 
-export const StyledSearch = styled(Box)(({ theme }) => ({
+export const StyledSearch = styled(Box)({
   width: '30%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-}))
+})
 
 export const StyledUser = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -92,15 +95,15 @@ export const StyledUserName = styled(Typography)(({ theme }) => ({
   textTransform: 'capitalize',
 }))
 
-export const StyledUserCart = styled(Box)(({ theme }) => ({
+export const StyledUserCart = styled(Box)({
   display: 'flex',
   width: '25%',
   justifyContent: 'flex-end',
   alignItems: 'center',
-}))
+})
 
 export const StyledSearchIcon = {
-  fontSize: theme.spacing(3),
+  fontSize: theme.spacing(4),
   color: theme.palette.text.secondary,
   paddingLeft: theme.spacing(2),
 }

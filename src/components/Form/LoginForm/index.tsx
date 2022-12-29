@@ -9,17 +9,15 @@ import { StyledButton } from '@webapp/components/Button/Button.module'
 import { StyledForm, StyledMessage, StylesSubmitBtn } from './LoginForm.module'
 
 // interface
-import { ILoginForm, IUserLogin } from '@webapp/interfaces/user'
+import { ILoginForm, ILoginInput } from '@webapp/interfaces/user'
 
 // validation
-import { EmailRequired, PasswordRequired } from '@webapp/helpers/validationForm'
+import { EmailValidation, PasswordValidation } from '@webapp/utils/validationForm'
 
 const LoginForm = ({ handleLogin, error }: ILoginForm) => {
-  const { control, handleSubmit } = useForm<IUserLogin>({ mode: 'onBlur' })
+  const { control, handleSubmit } = useForm<ILoginInput>({ mode: 'onBlur' })
 
-  const userLogin = (data: IUserLogin) => {
-    handleLogin(data)
-  }
+  const userLogin = (data: ILoginInput) => handleLogin(data)
 
   return (
     <StyledForm onSubmit={handleSubmit(userLogin)}>
@@ -33,7 +31,7 @@ const LoginForm = ({ handleLogin, error }: ILoginForm) => {
             {...field}
           />
         )}
-        rules={EmailRequired}
+        rules={EmailValidation}
         control={control}
         name='email'
       />
@@ -48,7 +46,7 @@ const LoginForm = ({ handleLogin, error }: ILoginForm) => {
             {...field}
           />
         )}
-        rules={PasswordRequired}
+        rules={PasswordValidation}
         control={control}
         name='password'
       ></Controller>

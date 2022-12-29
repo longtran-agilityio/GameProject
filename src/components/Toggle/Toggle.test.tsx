@@ -13,15 +13,14 @@ const ToggleProps = {
     },
   ],
 }
-const ToggleComponent = () => {
-  return render(
+const ToggleComponent = () =>
+  render(
     <Toggle
       labelToggle={ToggleProps.labelToggle}
       pageUrl={ToggleProps.pageUrl}
       title={ToggleProps.title}
     />,
   )
-}
 
 describe('Toggle', () => {
   test('should matches snapshot', () => {

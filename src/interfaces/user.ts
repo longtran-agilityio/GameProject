@@ -1,30 +1,28 @@
-import { IGame } from '@webapp/interfaces/game'
-export interface IUserLogin {
+export interface ILoginInput {
   email: string
   password: string
 }
 
-export interface IUserRegister extends IUserLogin {
-  id: number
+export interface IRegisterInput extends ILoginInput {
   firstName: string
   lastName: string
 }
 
 export interface ILoginForm {
-  handleLogin: (data: IUserLogin) => void
+  handleLogin: (data: ILoginInput) => void
   error: string
 }
 
 export interface IRegisterForm {
-  handleRegister: (data: IUserRegister) => void
+  handleRegister: (data: IRegisterInput) => void
   error: string
 }
 
-export interface IUserAuthenticated extends IUserRegister {
+export interface IUser extends IRegisterInput {
   id: number
 }
 
-export interface IGetUser {
+export interface IAuthResponse {
   accessToken: string
-  user: IUserAuthenticated
+  user: IUser
 }

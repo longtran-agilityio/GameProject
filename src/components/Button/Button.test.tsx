@@ -1,3 +1,4 @@
+// lib
 import { render, fireEvent } from '@webapp/utils/testUtils'
 import { faker } from '@faker-js/faker'
 
@@ -7,9 +8,8 @@ const onClick = jest.fn()
 const ButtonProps = {
   children: faker.name.fullName(),
 }
-const ButtonComponent = () => {
-  return render(<StyledButton onClick={onClick}>{ButtonProps.children}</StyledButton>)
-}
+const ButtonComponent = () =>
+  render(<StyledButton onClick={onClick}>{ButtonProps.children}</StyledButton>)
 
 describe('Button', () => {
   test('should matches snapshot', () => {

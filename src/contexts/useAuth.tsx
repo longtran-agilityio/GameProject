@@ -9,56 +9,64 @@ import {
 } from 'react'
 
 // interface
-import { IUserLogin, IUserRegister, IGetUser } from '@webapp/interfaces/user'
-import { postData } from '@webapp/services/fetchApi'
-import { pathCarts } from '@webapp/constants/path'
-import { baseUrl } from '@webapp/constants/API'
+import { ILoginInput, IRegisterInput, IAuthResponse } from '@webapp/interfaces/user'
+
+// fetcher
+import { postUser } from '@webapp/services/authAPI'
+import { postCart } from '@webapp/services/cartAPI'
+
+// constant
+import { baseUrl } from '@webapp/constants/api'
 import { GameEndpoint } from '@webapp/constants/endpoint'
+import { pathCarts } from '@webapp/constants/path'
+import { User } from '@webapp/constants/user'
 
 interface IUserAccount {
-  register: (value: IUserRegister) => Promise<IUserRegister>
-  login: (value: IUserLogin) => Promise<IUserLogin>
+  register: (value: IRegisterInput) => Promise<IAuthResponse>
+  login: (value: ILoginInput) => Promise<IAuthResponse>
   logout: () => void
   setError: (error: string) => void
   error: string
 }
 
-const UserAuthentication = createContext<IGetUser | null>(null)
-const UserActions = createContext<IUserAccount>({} as IUserAccount)
+const UserAuthentication = createContext<IAuthResponse | null>({} as IAuthResponse)
+const AuthState = createContext<IUserAccount>({} as IUserAccount)
 
 const useAuth = () => useContext(UserAuthentication)
-const useUserActions = () => useContext(UserActions)
+const useAuthState = () => useContext(AuthState)
 
 const UserProvider = ({ children }: { children: ReactNode }) => {
-  const userStorage = localStorage.getItem('user')
+  const userStorage = localStorage.getItem(User.USER)
   const initValue = () => JSON.parse(userStorage || 'null')
-  const [userAuthentication, setUserAuthentication] = useState<IGetUser | null>(initValue)
+
+  const [userAuthentication, setUserAuthentication] = useState<IAuthResponse | null>(initValue)
   const [error, setError] = useState<string>('')
+
   useEffect(() => {
     localStorage.setItem('user', JSON.stringify(userAuthentication))
   }, [userAuthentication])
 
   // login
-  const login = useCallback(async (data: IUserLogin) => {
-    const response = await postData({ url: `${baseUrl}`, endpoint: 'login', data })
-    setUserAuthentication(response as unknown as IGetUser)
-    return response as IUserLogin
+  const login = useCallback(async (data: ILoginInput) => {
+    const response = await postUser(`${baseUrl}`, User.LOGIN, data)
+    setUserAuthentication(response as IAuthResponse)
+    return response
   }, [])
 
   // register
-  const register = useCallback(async (data: IUserRegister) => {
-    const response = await postData({ url: `${baseUrl}`, endpoint: 'register', data })
-    setUserAuthentication(response as unknown as IGetUser)
-    await postData({
-      url: pathCarts,
-      endpoint: GameEndpoint.CARTS,
-      data: { userId: (response as unknown as IGetUser).user.id, cartGames: [] },
+  const register = useCallback(async (data: IRegisterInput) => {
+    const response = await postUser(`${baseUrl}`, User.REGISTER, data)
+    setUserAuthentication(response as IAuthResponse)
+    await postCart(pathCarts, GameEndpoint.CARTS, {
+      userId: response.user.id,
+      cartGames: [],
     })
-    return response as IUserRegister
+    return response
   }, [])
 
   // logout
   const logout = useCallback(() => {
+    localStorage.clear()
     setUserAuthentication(null)
   }, [])
 
@@ -68,12 +76,12 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
   )
 
   return (
-    <UserActions.Provider value={userController}>
+    <AuthState.Provider value={userController}>
       <UserAuthentication.Provider value={userAuthentication}>
         {children}
       </UserAuthentication.Provider>
-    </UserActions.Provider>
+    </AuthState.Provider>
   )
 }
 
-export { UserProvider, useAuth, useUserActions }
+export { UserProvider, useAuth, useAuthState }

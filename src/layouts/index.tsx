@@ -1,39 +1,53 @@
-import Header from '@webapp/components/Header'
-import { Outlet } from 'react-router-dom'
-import { useAuth } from '@webapp/contexts/useAuth'
-import BaseModal from '@webapp/components/BaseModal'
-import ShoppingCart from '@webapp/components/ShoppingCart'
-import { useCart } from '@webapp/contexts/games/cartProvider'
+// lib
 import { useState } from 'react'
-import { IGame } from '@webapp/interfaces/game'
+import { lazy, Suspense } from 'react'
+import { Outlet } from 'react-router-dom'
+import LinearProgress from '@mui/material/LinearProgress'
+
+// component
+import Header from '@webapp/components/Header'
+import BaseModal from '@webapp/components/BaseModal'
+
+// context
+import { useAuth } from '@webapp/contexts/useAuth'
+import { useCart } from '@webapp/contexts/games/cartProvider'
+
+// page
+import { StyledScroll } from '@webapp/pages/StyledPage/homePage'
+
+// lazy load page
+const ShoppingCart = lazy(() => import('@webapp/components/ShoppingCart'))
 
 const MainLayout = () => {
+  const [open, setOpen] = useState(false)
   const { cartsList, removeGame, removeAllGame } = useCart()
   const userAuthentication = useAuth()
-  const [open, setOpen] = useState(false)
-  const handleToggleModal = () => {
-    setOpen(!open)
-  }
-  const handleRemoveGame = (game: IGame) => {
-    const cartGame = cartsList.filter((item) => game !== item)
-    removeGame(userAuthentication?.user.id as number, cartGame)
-  }
 
-  const handleRemoveAllGames = () => {
-    removeAllGame(userAuthentication?.user.id as number)
-  }
+  const handleToggleModal = () => setOpen((prev) => !prev)
+
+  const handleRemoveGame = (id: number) => removeGame(id)
+
+  const handleRemoveAllGames = () => removeAllGame()
+
   return (
     <>
-      <Header authenticated={!!userAuthentication} open={open} onOpen={handleToggleModal} />
-      <BaseModal isOpen={open} onClose={handleToggleModal}>
-        <ShoppingCart
-          games={cartsList}
-          onDelete={handleRemoveGame}
-          open={open}
-          onOpen={handleToggleModal}
-          onDeleteAll={handleRemoveAllGames}
-        />
-      </BaseModal>
+      <Header authenticated={!!userAuthentication} onOpen={handleToggleModal} />
+      <Suspense
+        fallback={
+          <StyledScroll>
+            <LinearProgress sx={{ width: '1000px' }} color='secondary' />
+          </StyledScroll>
+        }
+      >
+        <BaseModal isOpen={open} onClose={handleToggleModal}>
+          <ShoppingCart
+            games={cartsList}
+            onDelete={handleRemoveGame}
+            onOpen={handleToggleModal}
+            onDeleteAll={handleRemoveAllGames}
+          />
+        </BaseModal>
+      </Suspense>
       <Outlet />
     </>
   )
